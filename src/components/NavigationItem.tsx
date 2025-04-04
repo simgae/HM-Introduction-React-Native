@@ -28,8 +28,8 @@ export default function NavigationItem({
   onPress,
 }: NavigationItemProps) {
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={onPress}>
+    <View>
+      <TouchableOpacity onPress={onPress} style={styles.container}>
         <Ionicons name={icon} size={iconSize} color={iconColor} />
         <Text style={styles.description}>{description}</Text>
       </TouchableOpacity>
