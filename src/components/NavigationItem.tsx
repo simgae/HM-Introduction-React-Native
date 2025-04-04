@@ -1,5 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import { View, Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import { StyleSheet } from "react-native";
 import { iconColor } from "../constants/colors";
 import { font } from "../constants/fonts";
@@ -28,12 +28,10 @@ export default function NavigationItem({
   onPress,
 }: NavigationItemProps) {
   return (
-    <View>
-      <TouchableOpacity onPress={onPress} style={styles.container}>
-        <Ionicons name={icon} size={iconSize} color={iconColor} />
-        <Text style={styles.description}>{description}</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
+      <Ionicons name={icon} size={iconSize} color={iconColor} />
+      <Text style={styles.description}>{description}</Text>
+    </TouchableOpacity>
   );
 }
 
