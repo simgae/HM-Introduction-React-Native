@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import HomeScreen from "./src/Screens/HomeScreen";
+import HomeScreen from "./src/screens/HomeScreen";
 
 /**
  * The main entry point of the application.
