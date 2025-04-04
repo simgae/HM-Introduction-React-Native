@@ -18,7 +18,14 @@ export default function RecipeListItem({ recipe }: { recipe: Recipe }) {
         <Text style={styles.title}>{recipe.title}</Text>
         <Text style={styles.description}>{recipe.description}</Text>
       </View>
-      <Image style={styles.image} source={require("../../assets/chef.jpg")} />
+      <Image
+        style={styles.image}
+        source={
+          recipe.image
+            ? { uri: recipe.image }
+            : require("../../assets/chef.jpg")
+        }
+      />
     </View>
   );
 }
