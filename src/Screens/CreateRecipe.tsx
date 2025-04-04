@@ -32,7 +32,7 @@ export default function CreateRecipe() {
             color="white"
             title="Select image"
             onPress={() => {
-              handleImageSelection;
+              handleImageSelection();
             }}
           />
         </View>
@@ -41,7 +41,7 @@ export default function CreateRecipe() {
             color="white"
             title="Save Recipe"
             onPress={() => {
-              handleSaveEvent;
+              handleSaveEvent();
             }}
           />
         </View>
