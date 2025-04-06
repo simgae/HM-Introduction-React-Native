@@ -63,7 +63,7 @@ export default function SearchRecipe() {
           <TextInput
             value={search}
             placeholder="Search for a recipe"
-            onChange={(e) => setSearch(e.nativeEvent.text)}
+            onChangeText={(text) => setSearch(text)}
           />
           <TouchableOpacity
             onPress={async () => {
@@ -75,14 +75,14 @@ export default function SearchRecipe() {
                 if (response.ok) {
                   response.json().then((data) => {
                     // Convert DBMealRecipe to Recipe
-                    const recipes: Recipe[] = data.meals.map(
-                      (meal: DBMealRecipe) => ({
-                        idMeal: meal.idMeal,
-                        title: meal.strMeal,
-                        description: meal.strArea,
-                        image: meal.strMealThumb,
-                      })
-                    );
+                    const recipes: Recipe[] = data.meals
+                      ? data.meals.map((meal: DBMealRecipe) => ({
+                          idMeal: meal.idMeal,
+                          title: meal.strMeal,
+                          description: meal.strArea,
+                          image: meal.strMealThumb,
+                        }))
+                      : [];
 
                     setRecipes(recipes);
                   });
