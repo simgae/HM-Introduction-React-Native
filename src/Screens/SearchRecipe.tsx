@@ -69,7 +69,7 @@ export default function SearchRecipe() {
             onPress={async () => {
               const searchValue = search.trim();
               await fetch(
-                "http://www.themealdb.com/api/json/v1/1/search.php?s=" +
+                "https://www.themealdb.com/api/json/v1/1/search.php?s=" +
                   searchValue
               ).then((response) => {
                 if (response.ok) {
