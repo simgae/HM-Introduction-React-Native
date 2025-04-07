@@ -61,6 +61,14 @@ export default function NavigationBar() {
           // TODO: Navigate to Search Recipe Screen
         }
       />
+      <NavigationItem
+        icon="calendar"
+        description="Food Planner"
+        onPress={
+          () => console.log("Calendar pressed")
+          // TODO: Navigate to Food Planner Screen
+        }
+      />
     </View>
   );
 }
