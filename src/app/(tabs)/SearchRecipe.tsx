@@ -1,13 +1,13 @@
 import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { View, Text, TextInput } from "react-native";
-import NavigationBar from "../components/NavigationBar";
-import { backgroundColor } from "../constants/colors";
+import NavigationBar from "../../components/NavigationBar";
+import { backgroundColor } from "../../constants/colors";
 import React from "react";
-import { font } from "../constants/fonts";
-import RecipeListItem from "../components/RecipeListItem";
-import { DBMealRecipe } from "../models/DBMealRecipe";
-import { Recipe } from "../models/Recipe";
+import { font } from "../../constants/fonts";
+import RecipeListItem from "../../components/RecipeListItem";
+import { DBMealRecipe } from "../../models/DBMealRecipe";
+import { Recipe } from "../../models/Recipe";
 
 /**
  * The `SearchRecipe` component provides a user interface for searching recipes
@@ -109,7 +109,6 @@ export default function SearchRecipe() {
           ))}
         </ScrollView>
       </View>
-      <NavigationBar />
     </View>
   );
 }
@@ -186,6 +185,5 @@ const styles = StyleSheet.create({
     fontFamily: font,
     textAlign: "center",
     color: "#666",
-    marginTop: 10,
   },
 });

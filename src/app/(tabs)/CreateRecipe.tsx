@@ -1,8 +1,8 @@
 import { Button, StyleSheet, TextInput } from "react-native";
 import { View, Text } from "react-native";
-import NavigationBar from "../components/NavigationBar";
-import { backgroundColor, hmColor } from "../constants/colors";
-import { font } from "../constants/fonts";
+import NavigationBar from "../../components/NavigationBar";
+import { backgroundColor, hmColor } from "../../constants/colors";
+import { font } from "../../constants/fonts";
 
 function handleImageSelection() {
   // TODO: Implement image selection logic
@@ -46,7 +46,6 @@ export default function CreateRecipe() {
           />
         </View>
       </View>
-      <NavigationBar />
     </View>
   );
 }

@@ -1,8 +1,8 @@
-import NavigationBar from "../components/NavigationBar";
+import NavigationBar from "../../components/NavigationBar";
 import { View, Text, Image } from "react-native";
 import { StyleSheet } from "react-native";
-import { backgroundColor } from "../constants/colors";
-import { font } from "../constants/fonts";
+import { backgroundColor } from "../../constants/colors";
+import { font } from "../../constants/fonts";
 
 /**
  * HomeScreen component renders the main screen of the application.
@@ -30,13 +30,15 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <View style={styles.content}>
         <Text style={styles.header}>The Crazy HM Chef</Text>
-        <Image style={styles.image} source={require("../../assets/chef.jpg")} />
+        <Image
+          style={styles.image}
+          source={require("../../../assets/chef.jpg")}
+        />
         <Text style={styles.description}>
           Here you can find and collect the best recipes for your home made
           meals.
         </Text>
       </View>
-      <NavigationBar />
     </View>
   );
 }
