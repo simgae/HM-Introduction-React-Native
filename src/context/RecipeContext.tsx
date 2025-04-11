@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { Recipe } from "../models/Recipe";
 
 type RecipeContextType = {
@@ -8,7 +8,7 @@ type RecipeContextType = {
 
 export const RecipeContext = createContext<RecipeContextType>({
   recipes: [],
-  setRecipies: () => {},
+  setRecipies: (() => {}) as React.Dispatch<React.SetStateAction<Recipe[]>>,
 });
 
 export const useRecipes = () => useContext(RecipeContext);

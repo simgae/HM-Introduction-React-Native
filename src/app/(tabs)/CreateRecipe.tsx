@@ -79,11 +79,12 @@ export default function CreateRecipe() {
             title="Save Recipe"
             onPress={() => {
               console.log("Saving recipe...");
-              setRecipies(() => [...recipes, recipe]);
+              console.log(recipe);
+              setRecipies([...recipes, recipe]);
               console.log("Recipe saved!");
               console.log(recipes);
               setRecipe({
-                id: recipes.length,
+                id: recipes.length + 1,
                 title: "",
                 description: "",
                 image: "",
