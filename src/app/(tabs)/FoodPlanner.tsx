@@ -1,5 +1,4 @@
 import { View, Text, ScrollView } from "react-native";
-import NavigationBar from "../../components/NavigationBar";
 import { backgroundColor } from "../../constants/colors";
 import { StyleSheet } from "react-native";
 import CalendarItem from "../../components/CalendarItem";
