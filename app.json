@@ -3,6 +3,7 @@
     "name": "hm-chef",
     "slug": "hm-chef",
     "version": "1.0.0",
+    "scheme": "hm-chef",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -23,6 +24,9 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }

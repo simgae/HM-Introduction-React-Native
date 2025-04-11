@@ -1,11 +1,10 @@
 import { View, Text, ScrollView } from "react-native";
-import NavigationBar from "../components/NavigationBar";
-import { backgroundColor } from "../constants/colors";
+import { backgroundColor } from "../../constants/colors";
 import { StyleSheet } from "react-native";
-import CalendarItem from "../components/CalendarItem";
+import CalendarItem from "../../components/CalendarItem";
 import React, { useEffect } from "react";
-import { Recipe } from "../models/Recipe";
-import { font } from "../constants/fonts";
+import { Recipe } from "../../models/Recipe";
+import { font } from "../../constants/fonts";
 
 /**
  * FoodPlanner is a React functional component that displays a weekly food planner.
@@ -104,7 +103,6 @@ export default function FoodPlanner() {
           ))}
         </ScrollView>
       </View>
-      <NavigationBar />
     </View>
   );
 }

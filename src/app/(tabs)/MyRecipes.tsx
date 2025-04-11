@@ -1,10 +1,10 @@
 import { View, Text, ScrollView } from "react-native";
 import { StyleSheet } from "react-native";
-import { backgroundColor } from "../constants/colors";
-import { font } from "../constants/fonts";
-import NavigationBar from "../components/NavigationBar";
-import { Recipe } from "../models/Recipe";
-import RecipeListItem from "../components/RecipeListItem";
+import { backgroundColor } from "../../constants/colors";
+import { font } from "../../constants/fonts";
+import NavigationBar from "../../components/NavigationBar";
+import { Recipe } from "../../models/Recipe";
+import RecipeListItem from "../../components/RecipeListItem";
 
 /**
  * An array of recipe objects, each representing a recipe with its unique ID, title, and description.
@@ -93,7 +93,6 @@ export default function MyRecipes() {
           ))}
         </View>
       </ScrollView>
-      <NavigationBar />
     </View>
   );
 }
