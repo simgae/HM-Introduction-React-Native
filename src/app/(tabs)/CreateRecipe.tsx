@@ -1,18 +1,41 @@
-import { Button, StyleSheet, TextInput } from "react-native";
+import { Button, StyleSheet, TextInput, Image } from "react-native";
 import { View, Text } from "react-native";
-import NavigationBar from "../../components/NavigationBar";
 import { backgroundColor, hmColor } from "../../constants/colors";
 import { font } from "../../constants/fonts";
+import * as ImagePicker from "expo-image-picker";
+import { useState } from "react";
+import { useRecipes } from "../../context/RecipeContext";
 
-function handleImageSelection() {
-  // TODO: Implement image selection logic
-}
+async function handleImageSelection() {
+  const permissionResult =
+    await ImagePicker.requestMediaLibraryPermissionsAsync();
 
-function handleSaveEvent() {
-  // TODO: Implement save event logic
+  if (permissionResult.granted === false) {
+    alert("Permission to access the media library is required!");
+    return;
+  }
+
+  const result = await ImagePicker.launchImageLibraryAsync({
+    mediaTypes: ["images"],
+    allowsEditing: true,
+    quality: 1,
+  });
+
+  if (!result.canceled) {
+    return result.assets[0].uri;
+  }
 }
 
 export default function CreateRecipe() {
+  const { setRecipies, recipes } = useRecipes();
+
+  const [recipe, setRecipe] = useState({
+    id: recipes.length,
+    title: "",
+    description: "",
+    image: "",
+  });
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
@@ -20,28 +43,51 @@ export default function CreateRecipe() {
         <TextInput
           style={[styles.input, styles.smallInput]}
           placeholder="Recipe Name"
+          value={recipe.title}
+          onChangeText={(text) => {
+            setRecipe({ ...recipe, title: text });
+          }}
         />
         <TextInput
           style={[styles.input, styles.largeInput]}
           placeholder="Recipe Description"
           multiline
           numberOfLines={4}
+          value={recipe.description}
+          onChangeText={(text) => {
+            setRecipe({ ...recipe, description: text });
+          }}
         />
         <View style={styles.button}>
           <Button
             color="white"
             title="Select image"
-            onPress={() => {
-              handleImageSelection();
+            onPress={async () => {
+              setRecipe({
+                ...recipe,
+                image: (await handleImageSelection()) || "",
+              });
             }}
           />
         </View>
+        {recipe.image ? (
+          <Image source={{ uri: recipe.image }} style={styles.importedImage} />
+        ) : null}
         <View style={styles.button}>
           <Button
             color="white"
             title="Save Recipe"
             onPress={() => {
-              handleSaveEvent();
+              console.log("Saving recipe...");
+              setRecipies(() => [...recipes, recipe]);
+              console.log("Recipe saved!");
+              console.log(recipes);
+              setRecipe({
+                id: recipes.length,
+                title: "",
+                description: "",
+                image: "",
+              });
             }}
           />
         </View>
@@ -109,5 +155,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 5,
     elevation: 5,
+  },
+  importedImage: {
+    width: 150,
+    height: 150,
+    marginBottom: 20,
   },
 });
