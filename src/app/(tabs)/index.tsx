@@ -1,29 +1,14 @@
-import NavigationBar from "../../components/NavigationBar";
 import { View, Text, Image } from "react-native";
 import { StyleSheet } from "react-native";
 import { backgroundColor } from "../../constants/colors";
 import { font } from "../../constants/fonts";
 
+
 /**
- * HomeScreen component renders the main screen of the application.
- * It displays a header, an image, a description, and a navigation bar.
+ * The `HomeScreen` component represents the main screen of the application.
+ * It displays a header, an image, and a description to introduce the app's purpose.
  *
- * @returns {JSX.Element} The rendered HomeScreen component.
- *
- * @remarks
- * - The header displays the title of the application.
- * - The image is sourced from the local assets folder.
- * - The description provides a brief overview of the app's purpose.
- * - The `NavigationBar` component is included at the bottom of the screen.
- *
- * @example
- * ```tsx
- * import HomeScreen from './Screens/HomeScreen';
- *
- * export default function App() {
- *   return <HomeScreen />;
- * }
- * ```
+ * @returns A React component that renders the home screen layout.
  */
 export default function HomeScreen() {
   return (

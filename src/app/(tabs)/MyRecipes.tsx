@@ -6,15 +6,13 @@ import RecipeListItem from "../../components/RecipeListItem";
 import { useRecipes } from "../../context/RecipeContext";
 
 /**
- * The `MyRecipes` component renders a screen displaying a list of recipes.
+ * The `MyRecipes` component displays a list of recipes added by the user.
  *
- * - If there are no recipes, it shows a message indicating that no recipes have been added yet.
- * - If recipes are available, it maps through the list and renders each recipe using the `RecipeListItem` component.
+ * This component utilizes the `useRecipes` hook to fetch the list of recipes
+ * and renders them inside a scrollable view. If no recipes are available,
+ * it displays a message indicating that no recipes have been added yet.
  *
- * The component is structured with a `ScrollView` for scrolling through the content
- * and a `NavigationBar` at the bottom for navigation purposes.
- *
- * @returns A React component that displays the user's recipes.
+ * @returns A React component that renders the user's recipes or a placeholder message.
  */
 export default function MyRecipes() {
   const { recipes } = useRecipes();

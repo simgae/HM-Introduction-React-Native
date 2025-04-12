@@ -10,6 +10,21 @@ import {
 import { font } from "../../constants/fonts";
 import RecipeProvider from "../../context/RecipeProvider";
 
+/**
+ * The `Layout` component serves as the main layout for the application, wrapping the tab navigation
+ * structure with a `RecipeProvider` to provide context to its child components. It defines a set of
+ * tab screens with custom icons, labels, and styles for navigation.
+ *
+ * @component
+ *
+ * @returns {JSX.Element} The rendered layout with tab navigation.
+ *
+ * @remarks
+ * - The `Tabs` component is used to define the tab-based navigation.
+ * - Each tab screen is configured with a name, title, label, and icon.
+ * - The `RecipeProvider` ensures that the context is available to all child components.
+ *
+ */
 export default function Layout() {
   return (
     <RecipeProvider>

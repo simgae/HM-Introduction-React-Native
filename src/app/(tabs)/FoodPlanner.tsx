@@ -6,17 +6,19 @@ import React, { useEffect } from "react";
 import { Recipe } from "../../models/Recipe";
 import { font } from "../../constants/fonts";
 
+
 /**
- * FoodPlanner is a React functional component that displays a weekly food planner.
- * It fetches random recipes from an external API and associates them with each day of the week.
+ * FoodPlanner is a React functional component that generates a weekly food plan.
+ * It fetches random recipes from an external API and displays them alongside calendar dates.
  *
  * @component
  * @returns {JSX.Element} The rendered FoodPlanner component.
  *
  * @remarks
  * - The component initializes with the current date and an empty list of recipes.
- * - It fetches 7 random recipes from "https://www.themealdb.com/api/json/v1/1/random.php" on mount.
- * - Recipes are displayed alongside their respective dates in a scrollable view.
+ * - It fetches 7 random recipes from "https://www.themealdb.com/api/json/v1/1/random.php" 
+ *   and maps them to a `Recipe` type.
+ * - Recipes are displayed in a scrollable list, each associated with a specific date.
  * - If a recipe is not available for a specific day, a placeholder message is shown.
  *
  * @example
@@ -31,20 +33,15 @@ import { font } from "../../constants/fonts";
  * @dependencies
  * - React
  * - React Native components: View, Text, ScrollView
- * - Custom components: CalendarItem, NavigationBar
+ * - Custom components: CalendarItem
  *
  * @state
  * - `today` (Date): The current date.
  * - `recipes` (Recipe[]): An array of recipes for the week.
  *
  * @hooks
+ * - `useState`: Manages the `today` and `recipes` state.
  * - `useEffect`: Fetches recipes when the component mounts.
- *
- * @interface Recipe
- * - `id` (string): The unique identifier for the recipe.
- * - `title` (string): The name of the recipe.
- * - `description` (string): A brief description of the recipe.
- * - `image` (string): The URL of the recipe's image.
  */
 export default function FoodPlanner() {
   const [today, _] = React.useState<Date>(new Date());
@@ -107,6 +104,24 @@ export default function FoodPlanner() {
   );
 }
 
+/**
+ * Styles for the FoodPlanner component.
+ *
+ * @property container - The main container style with full flex layout,
+ *                       column direction, centered alignment, and a background color.
+ *                       It spans the full width and height of the screen.
+ *
+ * @property content - The content area style with centered alignment,
+ *                     full width and height, and a top margin of 80.
+ *
+ * @property scrollView - The scrollable view style with full width,
+ *                        padding on both horizontal and vertical sides,
+ *                        and a background color.
+ *
+ * @property header - The header text style with a bold font,
+ *                    size of 32, custom font family, bottom margin of 20,
+ *                    and centered text alignment.
+ */
 const styles = StyleSheet.create({
   container: {
     flex: 1,

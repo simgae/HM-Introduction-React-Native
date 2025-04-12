@@ -6,6 +6,19 @@ import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
 import { useRecipes } from "../../context/RecipeContext";
 
+/**
+ * Handles the selection of an image from the device's media library.
+ *
+ * This function requests permission to access the media library. If the permission
+ * is denied, it alerts the user and exits. If the permission is granted, it opens
+ * the media library for the user to select an image. The selected image's URI is
+ * returned if the selection is successful.
+ *
+ * @returns {Promise<string | undefined>} A promise that resolves to the URI of the selected image,
+ * or `undefined` if the selection is canceled or permission is denied.
+ *
+ * @throws {Error} If an unexpected error occurs during the image selection process.
+ */
 async function handleImageSelection() {
   const permissionResult =
     await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -26,6 +39,32 @@ async function handleImageSelection() {
   }
 }
 
+/**
+ * A React Native component that allows users to create and save a new recipe.
+ *
+ * This component provides input fields for the recipe's title, description, and an option
+ * to select an image. Once the recipe is created, it is added to the list of recipes
+ * managed by the `useRecipes` hook.
+ *
+ * @component
+ *
+ * @returns {JSX.Element} The rendered CreateRecipe component.
+ *
+ * @remarks
+ * - The `useRecipes` hook is used to manage the state of recipes.
+ * - The `handleImageSelection` function is expected to be an asynchronous function
+ *   that handles image selection and returns the URI of the selected image.
+ *
+ * @example
+ * ```tsx
+ * import CreateRecipe from './CreateRecipe';
+ *
+ * export default function App() {
+ *   return <CreateRecipe />;
+ * }
+ * ```
+ *
+ */
 export default function CreateRecipe() {
   const { setRecipes, recipes } = useRecipes();
 
@@ -93,6 +132,24 @@ export default function CreateRecipe() {
   );
 }
 
+/**
+ * Stylesheet for the CreateRecipe component.
+ *
+ * @property container - The main container style with full width and height,
+ *                       centered alignment, and a column layout.
+ * @property content - The content wrapper style with centered alignment and
+ *                     full width and height.
+ * @property header - The header text style with bold font, large size, custom
+ *                    font family, and centered alignment.
+ * @property input - The input field style with a border, rounded corners,
+ *                   padding, shadow, and custom font.
+ * @property smallInput - A modifier for input fields with a smaller height.
+ * @property largeInput - A modifier for input fields with a larger height.
+ * @property button - The button style with a background color, rounded corners,
+ *                    padding, shadow, and centered alignment.
+ * @property importedImage - The style for an imported image with fixed width
+ *                           and height, and bottom margin.
+ */
 const styles = StyleSheet.create({
   container: {
     flex: 1,
