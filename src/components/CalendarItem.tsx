@@ -3,15 +3,16 @@ import { View, Text, Image } from "react-native";
 import { StyleSheet } from "react-native";
 import { hmColor } from "../constants/colors";
 import { font } from "../constants/fonts";
+import RecipeListItem from "./RecipeListItem";
 
 /**
- * A functional component that displays a calendar item with a date and a recipe.
+ * A functional component that renders a calendar item displaying a date and a recipe.
  *
  * @param {Object} props - The props object.
- * @param {Date} props.date - The date associated with the calendar item.
- * @param {Recipe} props.recipe - The recipe to display, including its title, description, and optional image.
+ * @param {Date} props.date - The date to be displayed in the calendar item.
+ * @param {Recipe} props.recipe - The recipe associated with the calendar item.
  *
- * @returns {JSX.Element} A styled view containing the date, recipe title, description, and an image.
+ * @returns {JSX.Element} A view containing the formatted date and a recipe list item.
  */
 export default function CalendarItem({
   date,
@@ -25,26 +26,22 @@ export default function CalendarItem({
       <Text style={styles.date}>
         {date.toDateString()} - {recipe.description}
       </Text>
-      <View style={styles.row}>
-        <Text style={styles.title}>{recipe.title}</Text>
-        <Image
-          style={styles.image}
-          source={
-            recipe.image
-              ? { uri: recipe.image }
-              : require("../../assets/chef.jpg")
-          }
-        />
-      </View>
+      <RecipeListItem recipe={recipe} />
     </View>
   );
 }
 
+/**
+ * Styles for the CalendarItem component.
+ *
+ * @property container - The main container style with full width, spacing between elements,
+ * rounded corners, padding, and centered content with space between items.
+ * @property date - The style for the date text, including font size, bold weight, and black color.
+ */
 const styles = StyleSheet.create({
   container: {
     width: "100%",
     gap: 10,
-    backgroundColor: hmColor,
     borderRadius: 10,
     padding: 10,
     justifyContent: "space-between",
@@ -53,26 +50,6 @@ const styles = StyleSheet.create({
   date: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "#fff",
-  },
-  row: {
-    flex: 3,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  title: {
-    flex: 1,
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "white",
-    fontFamily: font,
-  },
-  image: {
-    flex: 1,
-    width: 80,
-    height: 80,
-    borderRadius: 25,
-    marginLeft: "auto",
+    color: "#000",
   },
 });
