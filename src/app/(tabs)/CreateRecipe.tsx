@@ -27,7 +27,7 @@ async function handleImageSelection() {
 }
 
 export default function CreateRecipe() {
-  const { setRecipies, recipes } = useRecipes();
+  const { setRecipes, recipes } = useRecipes();
 
   const [recipe, setRecipe] = useState({
     id: recipes.length,
@@ -79,7 +79,7 @@ export default function CreateRecipe() {
             title="Save Recipe"
             onPress={() => {
               console.log("Saving recipe...");
-              setRecipies(() => [...recipes, recipe]);
+              setRecipes(() => [...recipes, recipe]);
               console.log("Recipe saved!");
               console.log(recipes);
               setRecipe({
