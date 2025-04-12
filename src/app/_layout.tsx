@@ -4,7 +4,7 @@ import RecipeProvider from "../context/RecipeProvider";
 export default function Layout() {
   return (
     <RecipeProvider>
-      <Stack />
+      <Stack screenOptions={{ headerShown: false }} />
     </RecipeProvider>
   );
 }
