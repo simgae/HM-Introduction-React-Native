@@ -9,15 +9,10 @@ import {
 } from "../../constants/sizes";
 import { font } from "../../constants/fonts";
 import RecipeProvider from "../../context/RecipeProvider";
-import { useState } from "react";
-import { Recipe } from "../../models/Recipe";
-
 export default function Layout() {
 
-  const [recipes, setRecipies] = useState<Recipe[]>([]);
-
   return (
-    <RecipeProvider value={{recipes, setRecipies}}>
+    <RecipeProvider>
       <Tabs
         screenOptions={{
           headerShown: false,
