@@ -27,7 +27,7 @@ async function handleImageSelection() {
 }
 
 export default function CreateRecipe() {
-  const { setRecipies, recipes } = useRecipes();
+  const { setRecipes, recipes } = useRecipes();
 
   const [recipe, setRecipe] = useState({
     id: recipes.length,
@@ -78,7 +78,7 @@ export default function CreateRecipe() {
             color="white"
             title="Save Recipe"
             onPress={() => {
-              setRecipies([...recipes, recipe]);
+              setRecipes([...recipes, recipe]);
               setRecipe({
                 id: recipes.length + 1,
                 title: "",
