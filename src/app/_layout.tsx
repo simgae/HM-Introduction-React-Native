@@ -1,5 +1,10 @@
 import { Stack } from "expo-router";
+import RecipeProvider from "../context/RecipeProvider";
 
 export default function Layout() {
-  return <Stack screenOptions={{ headerShown: false }} />;
+  return (
+    <RecipeProvider>
+      <Stack screenOptions={{ headerShown: false }} />
+    </RecipeProvider>
+  );
 }
