@@ -31,24 +31,10 @@ import { Recipe } from "../../models/Recipe";
  * }
  * ```
  *
- * @dependencies
- * - `React` for state management and rendering.
- * - `View`, `Text`, `TextInput`, `TouchableOpacity`, `ScrollView` from `react-native` for UI components.
- * - `Ionicons` for the search icon.
- * - `RecipeListItem` for rendering individual recipe items.
- * - `NavigationBar` for the bottom navigation bar.
- *
  * @state
  * - `recipes` (`Recipe[]`): The list of recipes fetched from the API.
  * - `search` (`string`): The current search input value.
  *
- * @styles
- * - `styles.container`: The main container style.
- * - `styles.content`: The content wrapper style.
- * - `styles.header`: The style for the header text.
- * - `styles.searchBar`: The style for the search bar container.
- * - `styles.scrollView`: The style for the scrollable recipe list.
- * - `styles.description`: The style for the "No recipes found" message.
  */
 export default function SearchRecipe() {
   const [recipes, setRecipes] = React.useState<Recipe[]>([]);
