@@ -21,6 +21,9 @@ export default function CalendarItem({
   date: Date;
   recipe: Recipe;
 }) {
+  // Do not display the category
+  recipe.description = "";
+
   return (
     <View style={styles.container}>
       <Text style={styles.date}>
