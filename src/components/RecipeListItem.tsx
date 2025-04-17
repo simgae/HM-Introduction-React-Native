@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     width: "100%",
+    height: 100,
     gap: 10,
     backgroundColor: hmColor,
     borderRadius: 10,
@@ -109,11 +110,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "white",
     fontFamily: font,
+    maxWidth: "90%",
   },
   texts: {
-    flex: 3,
-    justifyContent: "center",
-    alignItems: "flex-start",
+    display: "flex",
+    width: "60%",
+    gap: 15,
+    flexDirection: "row",
+    alignItems: "center",
   },
   image: {
     flex: 1,
