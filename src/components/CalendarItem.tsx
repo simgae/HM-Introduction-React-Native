@@ -21,15 +21,17 @@ export default function CalendarItem({
   date: Date;
   recipe: Recipe;
 }) {
+
+  const mutableRecipe = { ...recipe };
   // Do not display the category
-  recipe.description = "";
+  mutableRecipe.description = "";
 
   return (
     <View style={styles.container}>
       <Text style={styles.date}>
-        {date.toDateString()} - {recipe.description}
+        {date.toDateString()}
       </Text>
-      <RecipeListItem recipe={recipe} />
+      <RecipeListItem recipe={mutableRecipe} />
     </View>
   );
 }
