@@ -40,10 +40,8 @@ export default function RecipeListItem({ recipe }: { recipe: Recipe }) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.texts}>
-        <Text style={styles.title}>{recipe.title}</Text>
-        <Text style={styles.description}>{recipe.description}</Text>
-      </View>
+      <Text style={styles.title}>{recipe.title}</Text>
+      <Text style={styles.description}>{recipe.description}</Text>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
         <Image
           style={styles.image}
@@ -91,6 +89,7 @@ export default function RecipeListItem({ recipe }: { recipe: Recipe }) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
+    flex: 3,
     width: "100%",
     height: 100,
     gap: 10,
@@ -101,26 +100,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   title: {
+    minWidth: "33%",
+    maxWidth: "33%",
     fontSize: 20,
     fontWeight: "bold",
     color: "white",
     fontFamily: font,
   },
   description: {
+    maxWidth: "33%",
     fontSize: 16,
     color: "white",
     fontFamily: font,
-    maxWidth: "90%",
-  },
-  texts: {
-    display: "flex",
-    width: "60%",
-    gap: 15,
-    flexDirection: "row",
-    alignItems: "center",
   },
   image: {
-    flex: 1,
+    maxWidth: "30%",
     height: 80,
     borderRadius: 25,
     marginLeft: "auto",
