@@ -40,8 +40,8 @@ export default function RecipeListItem({ recipe }: { recipe: Recipe }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{recipe.title}</Text>
-      <Text style={styles.description}>{recipe.description}</Text>
+      <Text style={styles.title} numberOfLines={3}>{recipe.title}</Text>
+      <Text style={styles.description} numberOfLines={4}>{recipe.description}</Text>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
         <Image
           style={styles.image}
