@@ -40,6 +40,8 @@ export default function SearchRecipe() {
   const [recipes, setRecipes] = React.useState<Recipe[]>([]);
   const [search, setSearch] = React.useState("");
 
+  var defaultText = "No recipes found.";
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
@@ -72,7 +74,7 @@ export default function SearchRecipe() {
                     setRecipes(recipes);
                   });
                 } else {
-                  console.log("Error fetching data");
+                  defaultText = "Error fetching recipes.";
                 }
               });
             }}
@@ -87,7 +89,7 @@ export default function SearchRecipe() {
           }}
         >
           {recipes.length === 0 && (
-            <Text style={styles.description}>No recipes found.</Text>
+            <Text style={styles.description}>{defaultText}</Text>
           )}
           {recipes.map((recipe) => (
             <RecipeListItem key={recipes.indexOf(recipe)} recipe={recipe} />
