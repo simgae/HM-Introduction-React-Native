@@ -40,7 +40,7 @@ export default function SearchRecipe() {
   const [recipes, setRecipes] = React.useState<Recipe[]>([]);
   const [search, setSearch] = React.useState("");
 
-  var defaultText = "No recipes found.";
+  let defaultText = "No recipes found.";
 
   return (
     <View style={styles.container}>
