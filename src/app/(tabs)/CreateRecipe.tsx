@@ -112,19 +112,26 @@ export default function CreateRecipe() {
         {recipe.image ? (
           <Image source={{ uri: recipe.image }} style={styles.importedImage} />
         ) : null}
-        <View style={styles.button}>
+        <View
+          style={[
+            styles.button,
+            (recipe.title === "" || recipe.description === "") &&
+              styles.buttonDisabled,
+          ]}
+        >
           <Button
             color="white"
             title="Save Recipe"
             onPress={() => {
               setRecipes([...recipes, recipe]);
               setRecipe({
-                id: recipes.length + 1,
-                title: "",
-                description: "",
-                image: "",
+          id: recipes.length + 1,
+          title: "",
+          description: "",
+          image: "",
               });
             }}
+            disabled={recipe.title === "" || recipe.description === ""}
           />
         </View>
       </View>
@@ -209,6 +216,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 5,
     elevation: 5,
+  },
+  buttonDisabled: {
+    backgroundColor: "gray",
   },
   importedImage: {
     width: 150,

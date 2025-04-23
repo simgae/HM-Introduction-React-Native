@@ -40,8 +40,12 @@ export default function RecipeListItem({ recipe }: { recipe: Recipe }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title} numberOfLines={3}>{recipe.title}</Text>
-      <Text style={styles.description} numberOfLines={4}>{recipe.description}</Text>
+      <Text style={styles.title} numberOfLines={3}>
+        {recipe.title}
+      </Text>
+      <Text style={styles.description} numberOfLines={4}>
+        {recipe.description}
+      </Text>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
         <Image
           style={styles.image}
@@ -116,8 +120,10 @@ const styles = StyleSheet.create({
   image: {
     maxWidth: "30%",
     height: 80,
+    width: "30%",
     borderRadius: 25,
     marginLeft: "auto",
+    resizeMode: "cover",
   },
   modalBackground: {
     flex: 1,

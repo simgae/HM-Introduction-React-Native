@@ -1,8 +1,6 @@
 import { Recipe } from "../models/Recipe";
-import { View, Text, Image } from "react-native";
+import { View, Text } from "react-native";
 import { StyleSheet } from "react-native";
-import { hmColor } from "../constants/colors";
-import { font } from "../constants/fonts";
 import RecipeListItem from "./RecipeListItem";
 
 /**
@@ -21,16 +19,13 @@ export default function CalendarItem({
   date: Date;
   recipe: Recipe;
 }) {
-
   const mutableRecipe = { ...recipe };
   // Do not display the category
   mutableRecipe.description = "";
 
   return (
     <View style={styles.container}>
-      <Text style={styles.date}>
-        {date.toDateString()}
-      </Text>
+      <Text style={styles.date}>{date.toDateString()}</Text>
       <RecipeListItem recipe={mutableRecipe} />
     </View>
   );
